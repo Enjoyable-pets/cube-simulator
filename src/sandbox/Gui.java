@@ -11,10 +11,10 @@ public class Gui implements ActionListener {
 
     public void go() {
         JFrame frame = new JFrame();
-//        button = new JButton("click here");
-//        button.setSize(50, 20);
-//
-//        button.addActionListener(this);
+        button = new JButton("click here");
+        button.setSize(50, 20);
+
+        button.addActionListener(this);
 
         DrawPanel panel = new DrawPanel();
 

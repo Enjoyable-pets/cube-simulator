@@ -15,7 +15,7 @@ public class SimpleGui3C implements ActionListener {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        DrawCubePanel drawPanel = new DrawCubePanel();
+        DrawPanel drawPanel = new DrawPanel();
 
         frame.getContentPane().add(BorderLayout.CENTER, drawPanel);
         frame.setSize(700, 580);
