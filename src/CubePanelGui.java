@@ -1,3 +1,5 @@
+import Settings.CubeSize;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,7 +20,7 @@ public class CubePanelGui implements ActionListener {
         DrawCubePanel drawPanel = new DrawCubePanel();
 
         frame.getContentPane().add(BorderLayout.CENTER, drawPanel);
-        frame.setSize(700, 580);
+        frame.setSize(CubeSize.fullWidth, CubeSize.fullHeight);
         frame.setVisible(true);
     }
 
