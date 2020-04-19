@@ -1,3 +1,5 @@
+import Panels.LeftButtonsPanel;
+import Panels.TopButtonsPanel;
 import Settings.CubeSize;
 
 import javax.swing.*;
@@ -18,9 +20,14 @@ public class CubePanelGui implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         DrawCubePanel drawPanel = new DrawCubePanel();
+        LeftButtonsPanel leftButtonsPanel = new LeftButtonsPanel();
+        TopButtonsPanel topButtonsPanel = new TopButtonsPanel();
 
         frame.getContentPane().add(BorderLayout.CENTER, drawPanel);
-        frame.setSize(CubeSize.fullWidth, CubeSize.fullHeight);
+        frame.getContentPane().add(BorderLayout.WEST, leftButtonsPanel);
+        frame.getContentPane().add(BorderLayout.NORTH, topButtonsPanel);
+
+        frame.setSize(1400, 800);
         frame.setVisible(true);
     }
 

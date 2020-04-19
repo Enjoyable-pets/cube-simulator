@@ -6,7 +6,7 @@ public class CubeSize {
 
     private final int tileSize = 90;
     private final int padding = 5;
-    private final int borderSize = 20;
+    private final int borderSize = 10;
     private final int step;
     private final int c0;
     private final int c1;
