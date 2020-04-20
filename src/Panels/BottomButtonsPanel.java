@@ -5,8 +5,8 @@ import Settings.CubeSize;
 import javax.swing.*;
 import java.awt.*;
 
-public class TopButtonsPanel extends JPanel {
-    public TopButtonsPanel() {
+public class BottomButtonsPanel extends JPanel {
+    public BottomButtonsPanel() {
         setBackground(Color.darkGray);
         CubeSize cubeSize = new CubeSize();
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));

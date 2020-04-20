@@ -5,17 +5,16 @@ import Settings.CubeSize;
 import javax.swing.*;
 import java.awt.*;
 
-public class TopButtonsPanel extends JPanel {
-    public TopButtonsPanel() {
+public class RightButtonsPanel extends JPanel {
+    public RightButtonsPanel() {
         setBackground(Color.darkGray);
         CubeSize cubeSize = new CubeSize();
-        setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
+        Component emptyBox = Box.createRigidArea(new Dimension(0, cubeSize.getC2()));
+        Component padding = Box.createRigidArea(new Dimension(cubeSize.getPadding(), cubeSize.getPadding()));
         CubeButton button1 = new CubeButton();
         CubeButton button2 = new CubeButton();
-
-        Component emptyBox = Box.createRigidArea(new Dimension(cubeSize.getC3()-3, 0));
-        Component padding = Box.createRigidArea(new Dimension(cubeSize.getPadding(), cubeSize.getPadding()));
 
         add(emptyBox);
         add(button1);

@@ -4,10 +4,11 @@ public class CubeSize {
     public static final int fullHeight;
     public static final int fullWidth;
 
-    private final int tileSize = 90;
+    private final int tileSize = 100;
     private final int padding = 5;
     private final int borderSize = 10;
     private final int step;
+    private final int buttonInsetSize;
     private final int c0;
     private final int c1;
     private final int c2;
@@ -16,6 +17,7 @@ public class CubeSize {
     private final int c5;
     private final int c6;
     private final int c7;
+
 
     public CubeSize() {
         step = padding + tileSize;
@@ -27,18 +29,21 @@ public class CubeSize {
         c5 = c4 + step;
         c6 = c5 + step + padding;
         c7 = c6 + step;
+        buttonInsetSize = (tileSize - 6) / 2;
     }
 
     static {
         CubeSize cubeSize = new CubeSize();
         int border = cubeSize.getBorderSize();
-        fullWidth = cubeSize.getC7() + cubeSize.getTileSize() + border;
-        fullHeight = cubeSize.getC5() + cubeSize.getTileSize() + 3 * border;
+        fullWidth = cubeSize.getTileSize() + cubeSize.getC7() + cubeSize.getTileSize() + border + cubeSize.getTileSize();
+        fullHeight = cubeSize.getTileSize() + cubeSize.getC5() + cubeSize.getTileSize() + 5 * border + cubeSize.getTileSize();
     }
 
     public int getTileSize() {
         return tileSize;
     }
+
+    public int getButtonInsetSize() { return buttonInsetSize; }
 
     public int getPadding() {
         return padding;

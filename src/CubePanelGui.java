@@ -1,4 +1,6 @@
+import Panels.BottomButtonsPanel;
 import Panels.LeftButtonsPanel;
+import Panels.RightButtonsPanel;
 import Panels.TopButtonsPanel;
 import Settings.CubeSize;
 
@@ -22,12 +24,17 @@ public class CubePanelGui implements ActionListener {
         DrawCubePanel drawPanel = new DrawCubePanel();
         LeftButtonsPanel leftButtonsPanel = new LeftButtonsPanel();
         TopButtonsPanel topButtonsPanel = new TopButtonsPanel();
+        BottomButtonsPanel bottomButtonsPanel = new BottomButtonsPanel();
+        RightButtonsPanel rightButtonsPanel = new RightButtonsPanel();
 
         frame.getContentPane().add(BorderLayout.CENTER, drawPanel);
         frame.getContentPane().add(BorderLayout.WEST, leftButtonsPanel);
         frame.getContentPane().add(BorderLayout.NORTH, topButtonsPanel);
+        frame.getContentPane().add(BorderLayout.SOUTH, bottomButtonsPanel);
+        frame.getContentPane().add(BorderLayout.EAST, rightButtonsPanel);
 
-        frame.setSize(1400, 800);
+        frame.setSize(CubeSize.fullWidth, CubeSize.fullHeight);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
