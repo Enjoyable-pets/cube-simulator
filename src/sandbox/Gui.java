@@ -1,3 +1,5 @@
+import Cube.Cube;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -7,7 +9,8 @@ public class Gui extends JPanel {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame();
-        frame.getContentPane().add(BorderLayout.CENTER, new DrawCubePanel());
+        Cube cube = new Cube(100);
+        frame.getContentPane().add(BorderLayout.CENTER, new DrawCubePanel(cube));
         frame.getContentPane().add(BorderLayout.WEST, new Gui());
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

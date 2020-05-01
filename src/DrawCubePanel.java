@@ -10,7 +10,7 @@ public class DrawCubePanel extends JPanel {
     int size, c0, c1, c2, c3, c4, c5, c6, c7;
     Cube cube;
 
-    public DrawCubePanel() {
+    public DrawCubePanel(Cube cube) {
         cubeSize = new CubeSize();
         size = cubeSize.getTileSize();
         c0 = cubeSize.getC0();
@@ -22,7 +22,7 @@ public class DrawCubePanel extends JPanel {
         c6 = cubeSize.getC6();
         c7 = cubeSize.getC7();
 
-        cube = new Cube(size);
+        this.cube = cube;
     }
 
     public void paintComponent(Graphics graphics) {

@@ -21,6 +21,17 @@ public class Cube {
         return positions[side][col][row];
     }
 
+    public Face getFace(int side, int col, int row) {
+        Position position = positions[side][col][row];
+
+        return position.getFace();
+    }
+
+    public void setFace(Face face, int side, int col, int row) {
+        Position position = positions[side][col][row];
+        position.setFace(face);
+    }
+
     public Color getColor(int side, int col, int row) {
         Position position = positions[side][col][row];
 
