@@ -39,10 +39,10 @@ public class TestCubes {
         Face faceB10 = new Face(CubeColor.blue, size);
         Face faceB11 = new Face(CubeColor.blue, size);
 
-        Position positionC00 = new Position(Side.CENTER, 0, 0);
-        Position positionC01 = new Position(Side.CENTER, 0, 1);
-        Position positionC10 = new Position(Side.CENTER, 1, 0);
-        Position positionC11 = new Position(Side.CENTER, 1, 1);
+        Position positionC00 = new Position(Side.FRONT, 0, 0);
+        Position positionC01 = new Position(Side.FRONT, 0, 1);
+        Position positionC10 = new Position(Side.FRONT, 1, 0);
+        Position positionC11 = new Position(Side.FRONT, 1, 1);
         Position positionT00 = new Position(Side.TOP, 0, 0);
         Position positionT01 = new Position(Side.TOP, 0, 1);
         Position positionT10 = new Position(Side.TOP, 1, 0);

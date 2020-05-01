@@ -3,9 +3,10 @@ package Cube;
 import java.awt.*;
 
 public class Face {
-    Color color;
-    int size;
-    Position position;
+
+    private Color color;
+    private int size;
+    private Position position;
 
     public Face(Color color, int size) {
         this.color = color;

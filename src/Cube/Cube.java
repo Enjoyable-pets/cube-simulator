@@ -2,126 +2,190 @@ package Cube;
 
 import Settings.CubeColor;
 
+import java.awt.*;
+
 public class Cube {
 
-
+    Position[][][] positions = new Position[6][2][2];
+    Face[][][] faces = new Face[6][2][2];
+    Cubicle[][][] cubicles = new Cubicle[6][2][2];
 
     public Cube(int cubicleSize) {
+        createPositions();
+        createFaces(cubicleSize);
+        setFacesToPositions();
+        createCubicles();
+    }
 
-        Face faceY00 = new Face(CubeColor.yellow, cubicleSize);
-        Face faceY01 = new Face(CubeColor.yellow, cubicleSize);
-        Face faceY10 = new Face(CubeColor.yellow, cubicleSize);
-        Face faceY11 = new Face(CubeColor.yellow, cubicleSize);
-        Face faceG00 = new Face(CubeColor.green, cubicleSize);
-        Face faceG01 = new Face(CubeColor.green, cubicleSize);
-        Face faceG10 = new Face(CubeColor.green, cubicleSize);
-        Face faceG11 = new Face(CubeColor.green, cubicleSize);
-        Face faceR00 = new Face(CubeColor.red, cubicleSize);
-        Face faceR01 = new Face(CubeColor.red, cubicleSize);
-        Face faceR10 = new Face(CubeColor.red, cubicleSize);
-        Face faceR11 = new Face(CubeColor.red, cubicleSize);
-        Face faceW00 = new Face(CubeColor.white, cubicleSize);
-        Face faceW01 = new Face(CubeColor.white, cubicleSize);
-        Face faceW10 = new Face(CubeColor.white, cubicleSize);
-        Face faceW11 = new Face(CubeColor.white, cubicleSize);
-        Face faceOr00 = new Face(CubeColor.orange, cubicleSize);
-        Face faceOr01 = new Face(CubeColor.orange, cubicleSize);
-        Face faceOr10 = new Face(CubeColor.orange, cubicleSize);
-        Face faceOr11 = new Face(CubeColor.orange, cubicleSize);
-        Face faceB00 = new Face(CubeColor.blue, cubicleSize);
-        Face faceB01 = new Face(CubeColor.blue, cubicleSize);
-        Face faceB10 = new Face(CubeColor.blue, cubicleSize);
-        Face faceB11 = new Face(CubeColor.blue, cubicleSize);
+    public Position getPosition(int side, int col, int row) {
+        return positions[side][col][row];
+    }
 
-        Position positionC00 = new Position(Side.CENTER, 0, 0);
-        Position positionC01 = new Position(Side.CENTER, 0, 1);
-        Position positionC10 = new Position(Side.CENTER, 1, 0);
-        Position positionC11 = new Position(Side.CENTER, 1, 1);
-        Position positionT00 = new Position(Side.TOP, 0, 0);
-        Position positionT01 = new Position(Side.TOP, 0, 1);
-        Position positionT10 = new Position(Side.TOP, 1, 0);
-        Position positionT11 = new Position(Side.TOP, 1, 1);
-        Position positionL00 = new Position(Side.LEFT, 0, 0);
-        Position positionL01 = new Position(Side.LEFT, 0, 1);
-        Position positionL10 = new Position(Side.LEFT, 1, 0);
-        Position positionL11 = new Position(Side.LEFT, 1, 1);
-        Position positionB00 = new Position(Side.BOTTOM, 0, 0);
-        Position positionB01 = new Position(Side.BOTTOM, 0, 1);
-        Position positionB10 = new Position(Side.BOTTOM, 1, 0);
-        Position positionB11 = new Position(Side.BOTTOM, 1, 1);
-        Position positionR00 = new Position(Side.RIGHT, 0, 0);
-        Position positionR01 = new Position(Side.RIGHT, 0, 1);
-        Position positionR10 = new Position(Side.RIGHT, 1, 0);
-        Position positionR11 = new Position(Side.RIGHT, 1, 1);
-        Position positionK00 = new Position(Side.BACK, 0, 0);
-        Position positionK01 = new Position(Side.BACK, 0, 1);
-        Position positionK10 = new Position(Side.BACK, 1, 0);
-        Position positionK11 = new Position(Side.BACK, 1, 1);
+    public Color getColor(int side, int col, int row) {
+        Position position = positions[side][col][row];
 
-        positionC00.setFace(faceG00);
-        positionC01.setFace(faceG01);
-        positionC10.setFace(faceG10);
-        positionC11.setFace(faceG11);
-        positionT00.setFace(faceY00);
-        positionT01.setFace(faceY01);
-        positionT10.setFace(faceY10);
-        positionT11.setFace(faceY11);
-        positionL00.setFace(faceR00);
-        positionL01.setFace(faceR01);
-        positionL10.setFace(faceR10);
-        positionL11.setFace(faceR11);
-        positionB00.setFace(faceW00);
-        positionB01.setFace(faceW01);
-        positionB10.setFace(faceW10);
-        positionB11.setFace(faceW11);
-        positionR00.setFace(faceOr00);
-        positionR01.setFace(faceOr01);
-        positionR10.setFace(faceOr10);
-        positionR11.setFace(faceOr11);
-        positionK00.setFace(faceB00);
-        positionK01.setFace(faceB01);
-        positionK10.setFace(faceB10);
-        positionK11.setFace(faceB11);
+        return position.getColor();
+    }
+
+    public void move(int side, int way) {
+
+    }
+
+    private void createPositions()
+    {
+        positions[Side.FRONT][0][0] = new Position(Side.FRONT, 0, 0);
+        positions[Side.FRONT][0][1] = new Position(Side.FRONT, 0, 1);
+        positions[Side.FRONT][1][0] = new Position(Side.FRONT, 1, 0);
+        positions[Side.FRONT][1][1] = new Position(Side.FRONT, 1, 1);
+
+        positions[Side.TOP][0][0] = new Position(Side.TOP, 0, 0);
+        positions[Side.TOP][0][1] = new Position(Side.TOP, 0, 1);
+        positions[Side.TOP][1][0] = new Position(Side.TOP, 1, 0);
+        positions[Side.TOP][1][1] = new Position(Side.TOP, 1, 1);
+
+        positions[Side.LEFT][0][0] = new Position(Side.LEFT, 0, 0);
+        positions[Side.LEFT][0][1] = new Position(Side.LEFT, 0, 1);
+        positions[Side.LEFT][1][0] = new Position(Side.LEFT, 1, 0);
+        positions[Side.LEFT][1][1] = new Position(Side.LEFT, 1, 1);
+
+        positions[Side.BOTTOM][0][0] = new Position(Side.BOTTOM, 0, 0);
+        positions[Side.BOTTOM][0][1] = new Position(Side.BOTTOM, 0, 1);
+        positions[Side.BOTTOM][1][0] = new Position(Side.BOTTOM, 1, 0);
+        positions[Side.BOTTOM][1][1] = new Position(Side.BOTTOM, 1, 1);
+
+        positions[Side.RIGHT][0][0] = new Position(Side.RIGHT, 0, 0);
+        positions[Side.RIGHT][0][1] = new Position(Side.RIGHT, 0, 1);
+        positions[Side.RIGHT][1][0] = new Position(Side.RIGHT, 1, 0);
+        positions[Side.RIGHT][1][1] = new Position(Side.RIGHT, 1, 1);
+
+        positions[Side.BACK][0][0] = new Position(Side.BACK, 0, 0);
+        positions[Side.BACK][0][1] = new Position(Side.BACK, 0, 1);
+        positions[Side.BACK][1][0] = new Position(Side.BACK, 1, 0);
+        positions[Side.BACK][1][1] = new Position(Side.BACK, 1, 1);
+    }
+
+    public void createFaces(int cubicleSize) {
+        faces[Side.YELLOW][0][0] = new Face(CubeColor.yellow, cubicleSize);
+        faces[Side.YELLOW][0][1] = new Face(CubeColor.yellow, cubicleSize);
+        faces[Side.YELLOW][1][0] = new Face(CubeColor.yellow, cubicleSize);
+        faces[Side.YELLOW][1][1] = new Face(CubeColor.yellow, cubicleSize);
+
+        faces[Side.GREEN][0][0] = new Face(CubeColor.green, cubicleSize);
+        faces[Side.GREEN][0][1] = new Face(CubeColor.green, cubicleSize);
+        faces[Side.GREEN][1][0] = new Face(CubeColor.green, cubicleSize);
+        faces[Side.GREEN][1][1] = new Face(CubeColor.green, cubicleSize);
+
+        faces[Side.WHITE][0][0] = new Face(CubeColor.white, cubicleSize);
+        faces[Side.WHITE][0][1] = new Face(CubeColor.white, cubicleSize);
+        faces[Side.WHITE][1][0] = new Face(CubeColor.white, cubicleSize);
+        faces[Side.WHITE][1][1] = new Face(CubeColor.white, cubicleSize);
+
+        faces[Side.RED][0][0] = new Face(CubeColor.red, cubicleSize);
+        faces[Side.RED][0][1] = new Face(CubeColor.red, cubicleSize);
+        faces[Side.RED][1][0] = new Face(CubeColor.red, cubicleSize);
+        faces[Side.RED][1][1] = new Face(CubeColor.red, cubicleSize);
+
+        faces[Side.ORANGE][0][0] = new Face(CubeColor.orange, cubicleSize);
+        faces[Side.ORANGE][0][1] = new Face(CubeColor.orange, cubicleSize);
+        faces[Side.ORANGE][1][0] = new Face(CubeColor.orange, cubicleSize);
+        faces[Side.ORANGE][1][1] = new Face(CubeColor.orange, cubicleSize);
+
+        faces[Side.BLUE][0][0] = new Face(CubeColor.blue, cubicleSize);
+        faces[Side.BLUE][0][1] = new Face(CubeColor.blue, cubicleSize);
+        faces[Side.BLUE][1][0] = new Face(CubeColor.blue, cubicleSize);
+        faces[Side.BLUE][1][1] = new Face(CubeColor.blue, cubicleSize);
+    }
+
+    private void setFacesToPositions()
+    {
+        positions[Side.FRONT][0][0].setFace(faces[Side.GREEN][0][0]);
+        positions[Side.FRONT][0][1].setFace(faces[Side.GREEN][0][1]);
+        positions[Side.FRONT][1][0].setFace(faces[Side.GREEN][1][0]);
+        positions[Side.FRONT][1][1].setFace(faces[Side.GREEN][1][1]);
+
+        positions[Side.TOP][0][0].setFace(faces[Side.YELLOW][0][0]);
+        positions[Side.TOP][0][1].setFace(faces[Side.YELLOW][0][1]);
+        positions[Side.TOP][1][0].setFace(faces[Side.YELLOW][1][0]);
+        positions[Side.TOP][1][1].setFace(faces[Side.YELLOW][1][1]);
+
+        positions[Side.LEFT][0][0].setFace(faces[Side.RED][0][0]);
+        positions[Side.LEFT][0][1].setFace(faces[Side.RED][0][1]);
+        positions[Side.LEFT][1][0].setFace(faces[Side.RED][1][0]);
+        positions[Side.LEFT][1][1].setFace(faces[Side.RED][1][1]);
+
+        positions[Side.BOTTOM][0][0].setFace(faces[Side.WHITE][0][0]);
+        positions[Side.BOTTOM][0][1].setFace(faces[Side.WHITE][0][1]);
+        positions[Side.BOTTOM][1][0].setFace(faces[Side.WHITE][1][0]);
+        positions[Side.BOTTOM][1][1].setFace(faces[Side.WHITE][1][1]);
+
+        positions[Side.RIGHT][0][0].setFace(faces[Side.ORANGE][0][0]);
+        positions[Side.RIGHT][0][1].setFace(faces[Side.ORANGE][0][1]);
+        positions[Side.RIGHT][1][0].setFace(faces[Side.ORANGE][1][0]);
+        positions[Side.RIGHT][1][1].setFace(faces[Side.ORANGE][1][1]);
+
+        positions[Side.BACK][0][0].setFace(faces[Side.BLUE][0][0]);
+        positions[Side.BACK][0][1].setFace(faces[Side.BLUE][0][1]);
+        positions[Side.BACK][1][0].setFace(faces[Side.BLUE][1][0]);
+        positions[Side.BACK][1][1].setFace(faces[Side.BLUE][1][1]);
+    }
+
+    private void createCubicles() {
 
         Cubicle cubeGYR = new Cubicle();
-        cubeGYR.addFace(faceG00);
-        cubeGYR.addFace(faceY01);
-        cubeGYR.addFace(faceR10);
+        cubeGYR.addFace(faces[Side.GREEN][0][0]);
+        cubeGYR.addFace(faces[Side.YELLOW][0][1]);
+        cubeGYR.addFace(faces[Side.RED][1][0]);
+        cubeGYR.setName("GYR");
+        cubicles[Side.FRONT][0][0] = cubeGYR;
 
         Cubicle cubeGYO = new Cubicle();
-        cubeGYO.addFace(faceG01);
-        cubeGYO.addFace(faceY11);
-        cubeGYO.addFace(faceOr00);
+        cubeGYO.addFace(faces[Side.GREEN][0][1]);
+        cubeGYO.addFace(faces[Side.YELLOW][1][1]);
+        cubeGYO.addFace(faces[Side.ORANGE][0][0]);
+        cubeGYO.setName("GYO");
+        cubicles[Side.FRONT][0][1] = cubeGYO;
 
         Cubicle cubeGWR = new Cubicle();
-        cubeGWR.addFace(faceG01);
-        cubeGWR.addFace(faceW00);
-        cubeGWR.addFace(faceR11);
+        cubeGWR.addFace(faces[Side.GREEN][0][1]);
+        cubeGWR.addFace(faces[Side.WHITE][0][0]);
+        cubeGWR.addFace(faces[Side.RED][1][1]);
+        cubeGWR.setName("GWR");
+        cubicles[Side.FRONT][1][0] = cubeGWR;
 
         Cubicle cubeGWO = new Cubicle();
-        cubeGWO.addFace(faceG11);
-        cubeGWO.addFace(faceW01);
-        cubeGWO.addFace(faceOr01);
+        cubeGWO.addFace(faces[Side.GREEN][1][1]);
+        cubeGWO.addFace(faces[Side.WHITE][0][1]);
+        cubeGWO.addFace(faces[Side.ORANGE][0][1]);
+        cubeGWO.setName("GWO");
+        cubicles[Side.FRONT][1][1] = cubeGWO;
 
 
         Cubicle cubeBYO = new Cubicle();
-        cubeBYO.addFace(faceB00);
-        cubeBYO.addFace(faceY10);
-        cubeBYO.addFace(faceOr01);
+        cubeBYO.addFace(faces[Side.BLUE][0][0]);
+        cubeBYO.addFace(faces[Side.YELLOW][1][0]);
+        cubeBYO.addFace(faces[Side.ORANGE][0][1]);
+        cubeBYO.setName("BYO");
+        cubicles[Side.BACK][0][0] = cubeBYO;
 
         Cubicle cubeBYR = new Cubicle();
-        cubeBYR.addFace(faceB01);
-        cubeBYR.addFace(faceY00);
-        cubeBYR.addFace(faceR00);
+        cubeBYR.addFace(faces[Side.BLUE][0][1]);
+        cubeBYR.addFace(faces[Side.YELLOW][0][0]);
+        cubeBYR.addFace(faces[Side.RED][0][0]);
+        cubeBYR.setName("BYR");
+        cubicles[Side.BACK][0][1] = cubeBYR;
 
         Cubicle cubeBWO = new Cubicle();
-        cubeBWO.addFace(faceB01);
-        cubeBWO.addFace(faceW11);
-        cubeBWO.addFace(faceOr11);
+        cubeBWO.addFace(faces[Side.BLUE][0][1]);
+        cubeBWO.addFace(faces[Side.WHITE][1][1]);
+        cubeBWO.addFace(faces[Side.ORANGE][1][1]);
+        cubeBWO.setName("BWO");
+        cubicles[Side.BACK][1][0] = cubeBWO;
 
         Cubicle cubeBWR = new Cubicle();
-        cubeBWR.addFace(faceB11);
-        cubeBWR.addFace(faceW01);
-        cubeBWR.addFace(faceR01);
+        cubeBWR.addFace(faces[Side.BLUE][1][1]);
+        cubeBWR.addFace(faces[Side.WHITE][0][1]);
+        cubeBWR.addFace(faces[Side.RED][0][1]);
+        cubeBWR.setName("BWR");
+        cubicles[Side.BACK][1][1] = cubeBWR;
     }
 }

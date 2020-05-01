@@ -3,7 +3,9 @@ package Cube;
 import java.util.ArrayList;
 
 public class Cubicle {
-    ArrayList<Face> faces;
+
+    private ArrayList<Face> faces;
+    private String name;
 
     public Cubicle()
     {
@@ -12,5 +14,13 @@ public class Cubicle {
 
     public void addFace(Face face) {
         faces.add(face);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -1,5 +1,7 @@
 package Cube;
 
+import java.awt.*;
+
 public class Position {
     int side;
     int col;
@@ -22,4 +24,6 @@ public class Position {
             face.setPosition(this);
         }
     }
+
+    public Color getColor() { return face.getColor(); }
 }
