@@ -145,62 +145,102 @@ public class Cube {
     }
 
     private void createCubicles() {
+        Cubicle cubicle;
 
-        Cubicle cubeGYR = new Cubicle();
-        cubeGYR.addFace(faces[Side.GREEN][0][0]);
-        cubeGYR.addFace(faces[Side.YELLOW][0][1]);
-        cubeGYR.addFace(faces[Side.RED][1][0]);
-        cubeGYR.setName("GYR");
-        cubicles[Side.FRONT][0][0] = cubeGYR;
+        cubicle = new Cubicle();
+        cubicle.addFace(faces[Side.GREEN][0][0]);
+        cubicle.addFace(faces[Side.YELLOW][0][1]);
+        cubicle.addFace(faces[Side.RED][1][0]);
+        cubicle.addPosition(positions[Side.FRONT][0][0]);
+        cubicle.addPosition(positions[Side.TOP][0][1]);
+        cubicle.addPosition(positions[Side.LEFT][1][0]);
+        cubicles[Side.FRONT][0][0] = cubicle;
+        cubicles[Side.TOP][0][1] = cubicle;
+        cubicles[Side.LEFT][1][0] = cubicle;
+        cubicle.setName("FrontTopLeft");
 
-        Cubicle cubeGYO = new Cubicle();
-        cubeGYO.addFace(faces[Side.GREEN][0][1]);
-        cubeGYO.addFace(faces[Side.YELLOW][1][1]);
-        cubeGYO.addFace(faces[Side.ORANGE][0][0]);
-        cubeGYO.setName("GYO");
-        cubicles[Side.FRONT][0][1] = cubeGYO;
+        cubicle = new Cubicle();
+        cubicle.addFace(faces[Side.GREEN][0][1]);
+        cubicle.addFace(faces[Side.YELLOW][1][1]);
+        cubicle.addFace(faces[Side.ORANGE][0][0]);
+        cubicle.addPosition(positions[Side.FRONT][0][1]);
+        cubicle.addPosition(positions[Side.TOP][1][1]);
+        cubicle.addPosition(positions[Side.RIGHT][0][0]);
+        cubicles[Side.FRONT][0][1] = cubicle;
+        cubicles[Side.TOP][1][1] = cubicle;
+        cubicles[Side.RIGHT][0][0] = cubicle;
+        cubicle.setName("FrontTopRight");
 
-        Cubicle cubeGWR = new Cubicle();
-        cubeGWR.addFace(faces[Side.GREEN][0][1]);
-        cubeGWR.addFace(faces[Side.WHITE][0][0]);
-        cubeGWR.addFace(faces[Side.RED][1][1]);
-        cubeGWR.setName("GWR");
-        cubicles[Side.FRONT][1][0] = cubeGWR;
+        cubicle = new Cubicle();
+        cubicle.addFace(faces[Side.GREEN][1][0]);
+        cubicle.addFace(faces[Side.WHITE][0][0]);
+        cubicle.addFace(faces[Side.RED][1][1]);
+        cubicle.addPosition(positions[Side.FRONT][1][0]);
+        cubicle.addPosition(positions[Side.BOTTOM][0][0]);
+        cubicle.addPosition(positions[Side.LEFT][1][1]);
+        cubicles[Side.FRONT][1][0] = cubicle;
+        cubicles[Side.BOTTOM][0][0] = cubicle;
+        cubicles[Side.LEFT][1][1] = cubicle;
+        cubicle.setName("FrontBottomLeft");
 
-        Cubicle cubeGWO = new Cubicle();
-        cubeGWO.addFace(faces[Side.GREEN][1][1]);
-        cubeGWO.addFace(faces[Side.WHITE][0][1]);
-        cubeGWO.addFace(faces[Side.ORANGE][0][1]);
-        cubeGWO.setName("GWO");
-        cubicles[Side.FRONT][1][1] = cubeGWO;
+        cubicle = new Cubicle();
+        cubicle.addFace(faces[Side.GREEN][1][1]);
+        cubicle.addFace(faces[Side.WHITE][1][0]);
+        cubicle.addFace(faces[Side.ORANGE][0][1]);
+        cubicle.addPosition(positions[Side.FRONT][1][1]);
+        cubicle.addPosition(positions[Side.BOTTOM][1][0]);
+        cubicle.addPosition(positions[Side.RIGHT][0][1]);
+        cubicles[Side.FRONT][1][1] = cubicle;
+        cubicles[Side.BOTTOM][1][0] = cubicle;
+        cubicles[Side.RIGHT][0][1] = cubicle;
+        cubicle.setName("FrontBottomRight");
 
+        cubicle = new Cubicle();
+        cubicle.addFace(faces[Side.BLUE][0][0]);
+        cubicle.addFace(faces[Side.YELLOW][1][0]);
+        cubicle.addFace(faces[Side.ORANGE][0][1]);
+        cubicle.addPosition(positions[Side.BACK][0][0]);
+        cubicle.addPosition(positions[Side.TOP][1][0]);
+        cubicle.addPosition(positions[Side.LEFT][0][1]);
+        cubicles[Side.BACK][0][0] = cubicle;
+        cubicles[Side.TOP][1][0] = cubicle;
+        cubicles[Side.LEFT][0][1] = cubicle;
+        cubicle.setName("BackTopLeft");
 
-        Cubicle cubeBYO = new Cubicle();
-        cubeBYO.addFace(faces[Side.BLUE][0][0]);
-        cubeBYO.addFace(faces[Side.YELLOW][1][0]);
-        cubeBYO.addFace(faces[Side.ORANGE][0][1]);
-        cubeBYO.setName("BYO");
-        cubicles[Side.BACK][0][0] = cubeBYO;
+        cubicle = new Cubicle();
+        cubicle.addFace(faces[Side.BLUE][0][1]);
+        cubicle.addFace(faces[Side.YELLOW][0][0]);
+        cubicle.addFace(faces[Side.RED][0][0]);
+        cubicle.addPosition(positions[Side.BACK][0][1]);
+        cubicle.addPosition(positions[Side.TOP][0][0]);
+        cubicle.addPosition(positions[Side.RIGHT][0][0]);
+        cubicles[Side.BACK][0][1] = cubicle;
+        cubicles[Side.TOP][0][0] = cubicle;
+        cubicles[Side.RIGHT][0][0] = cubicle;
+        cubicle.setName("BackTopRight");
 
-        Cubicle cubeBYR = new Cubicle();
-        cubeBYR.addFace(faces[Side.BLUE][0][1]);
-        cubeBYR.addFace(faces[Side.YELLOW][0][0]);
-        cubeBYR.addFace(faces[Side.RED][0][0]);
-        cubeBYR.setName("BYR");
-        cubicles[Side.BACK][0][1] = cubeBYR;
+        cubicle = new Cubicle();
+        cubicle.addFace(faces[Side.BLUE][1][0]);
+        cubicle.addFace(faces[Side.WHITE][1][1]);
+        cubicle.addFace(faces[Side.ORANGE][1][1]);
+        cubicle.addPosition(positions[Side.BACK][1][0]);
+        cubicle.addPosition(positions[Side.BOTTOM][1][1]);
+        cubicle.addPosition(positions[Side.LEFT][1][1]);
+        cubicles[Side.BACK][1][0] = cubicle;
+        cubicles[Side.BOTTOM][1][1] = cubicle;
+        cubicles[Side.LEFT][1][1] = cubicle;
+        cubicle.setName("BackBottomLeft");
 
-        Cubicle cubeBWO = new Cubicle();
-        cubeBWO.addFace(faces[Side.BLUE][0][1]);
-        cubeBWO.addFace(faces[Side.WHITE][1][1]);
-        cubeBWO.addFace(faces[Side.ORANGE][1][1]);
-        cubeBWO.setName("BWO");
-        cubicles[Side.BACK][1][0] = cubeBWO;
-
-        Cubicle cubeBWR = new Cubicle();
-        cubeBWR.addFace(faces[Side.BLUE][1][1]);
-        cubeBWR.addFace(faces[Side.WHITE][0][1]);
-        cubeBWR.addFace(faces[Side.RED][0][1]);
-        cubeBWR.setName("BWR");
-        cubicles[Side.BACK][1][1] = cubeBWR;
+        cubicle = new Cubicle();
+        cubicle.addFace(faces[Side.BLUE][1][1]);
+        cubicle.addFace(faces[Side.WHITE][0][1]);
+        cubicle.addFace(faces[Side.RED][0][1]);
+        cubicle.addPosition(positions[Side.BACK][1][1]);
+        cubicle.addPosition(positions[Side.BOTTOM][0][1]);
+        cubicle.addPosition(positions[Side.RIGHT][0][1]);
+        cubicles[Side.BACK][1][1] = cubicle;
+        cubicles[Side.BOTTOM][0][1] = cubicle;
+        cubicles[Side.RIGHT][0][1] = cubicle;
+        cubicle.setName("BackBottomRight");
     }
 }
