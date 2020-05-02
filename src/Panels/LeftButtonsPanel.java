@@ -1,7 +1,6 @@
 package Panels;
 
 import Settings.CubeSize;
-
 import javax.swing.*;
 import java.awt.*;
 

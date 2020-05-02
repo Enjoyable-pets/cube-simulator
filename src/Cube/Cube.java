@@ -38,8 +38,12 @@ public class Cube {
         return position.getColor();
     }
 
-    public void move(int side, int way) {
+    public Cubicle getCubicle(int side, int col, int row) {
+        return cubicles[side][col][row];
+    }
 
+    public void move(int side, int way) {
+        System.out.println("Moved " + side + way);
     }
 
     private void createPositions()
