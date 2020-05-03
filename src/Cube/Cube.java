@@ -6,9 +6,10 @@ import java.awt.*;
 
 public class Cube {
 
-    Position[][][] positions = new Position[6][2][2];
-    Face[][][] faces = new Face[6][2][2];
-    Cubicle[][][] cubicles = new Cubicle[6][2][2];
+    private Position[][][] positions = new Position[6][2][2];
+    private Face[][][] faces = new Face[6][2][2];
+    private Cubicle[][][] cubicles = new Cubicle[6][2][2];
+    private String moveCode;
 
     public Cube(int cubicleSize) {
         createPositions();
@@ -43,7 +44,32 @@ public class Cube {
     }
 
     public void move(int side, int way) {
-        System.out.println("Moved " + side + way);
+        boolean movedPretty = false;
+        moveCode = String.valueOf(side) + way;
+
+        Cubicle cubicle;
+
+        System.out.print("Moved ");
+        if (moveCode.equals("33")) {
+
+
+
+            movedPretty = true;
+            System.out.println("Top left down");
+        }
+
+        if (!movedPretty) {
+            System.out.println(moveCode);
+        }
+    }
+
+    private void changeFaces()
+    {
+        Cubicle tempCubicle = new Cubicle();
+        Cubicle cubicle00 = getCubicle(Side.FRONT, 0, 0);
+        Cubicle cubicle01 = getCubicle(Side.FRONT, 0, 1);
+        Cubicle cubicle10 = getCubicle(Side.FRONT, 1, 0);
+        Cubicle cubicle11 = getCubicle(Side.FRONT, 1, 1);
     }
 
     private void createPositions()

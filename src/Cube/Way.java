@@ -5,4 +5,7 @@ public class Way {
     public static final int RIGHT = 1;
     public static final int UP = 2;
     public static final int DOWN = 3;
+
+    public static int NEXT = 0;
+    public static int PREV = 1;
 }

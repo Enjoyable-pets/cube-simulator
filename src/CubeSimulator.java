@@ -1,4 +1,7 @@
 import Cube.*;
+import Move.Facade;
+import Move.FacadeMap;
+import Move.SidesMap;
 import Panels.*;
 import Settings.CubeSize;
 
@@ -22,6 +25,13 @@ public class CubeSimulator {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         cube = new Cube(100);
+        SidesMap map = new SidesMap();
+        FacadeMap facadeMap = new FacadeMap();
+
+        int next = map.getNext(Side.FRONT, Side.TOP);
+        Facade facade = facadeMap.getNext(0,0);
+        facade = facadeMap.getPrevious(0,0);
+
         DrawCubePanel drawPanel = new DrawCubePanel(cube);
 
         JPanel leftButtonsPanel = createLeftButtonsPanel();
